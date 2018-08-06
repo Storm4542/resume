@@ -1,5 +1,5 @@
 # resume-zty
-预览地址 https://storm4542.github.io/resume/
+预览地址 https://storm4542.github.io/resume/dist/index.html
 ## Project setup
 ```
 yarn install

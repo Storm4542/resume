@@ -36,7 +36,11 @@ html {
     padding: .5em;
     border: 1px solid #ddd;
     overflow: auto;
-    width:60vh;height:45vh
+    width:60vh;height:90vh
+}
+/* 太高了 */
+.styleEditor {
+  height: 45vh;
 }
 /*代码高亮一下*/
 .token.selector{ color: rgb(133,153,0); }
@@ -57,13 +61,14 @@ html{
 /* 接下来我给自己准备一个编辑器 */
 .resumeEditor{
   position: fixed;
-  top: 50%; left: 0;
+  top: 50%; right: 0;
   padding: .5em;  margin: 2.5vh;
   width: 95vw; height: 45vh;
   border: 1px solid;
   background: white; color: #222;
   overflow: auto;
 }
+
 /* 好了，我开始写简历了 */
               `,
                     `
@@ -165,6 +170,9 @@ html{
                         }else{
                             let timer = setInterval(() => {
                                 this.currentStyle = style.substring(0, i);
+                                this.$nextTick(() => {
+                                    this.$refs.styleEditor.goBottom()
+                                })
                                 if (i === length - 1) {
                                     window.clearInterval(timer);
                                     resolve()
@@ -188,6 +196,11 @@ html{
                         let n = 0;
                         let timer = setInterval(() => {
                             this.currentMarkdown = this.fullMarkdowm.substring(0, n);
+                            this.$nextTick(() => {
+                                if(this.this.$refs.resumeEditor !== undefined){
+                                    this.$refs.resumeEditor.goBottom()
+                                }
+                            });
                             if (n === length - 1) {
                                 window.clearInterval(timer);
                                 resolve()
@@ -212,8 +225,7 @@ html{
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        min-height: 100vh;
-        position: relative;
+        min-height: 100vh; position: relative;
     }
     html {
         min-height: 100vh;

@@ -138,8 +138,8 @@ html{
                             let oldStyle = this.currentStyle;
                             let timer = setInterval(() => {
                                 this.currentStyle =oldStyle+ style.substring(0, i);
-
                                     this.$nextTick(() => {
+                                        console.log(1);
                                         this.$refs.styleEditor.goBottom()
                                     })
 

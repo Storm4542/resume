@@ -19,9 +19,7 @@
             goBottom: function () {
                 this.$refs.container.scrollTop = 100000
             },
-            goTop: function(){
-                this.$refs.container.scrollTop = 0
-            }
+
         }
     }
 </script>
